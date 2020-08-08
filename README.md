@@ -1,7 +1,7 @@
 
   
 
-# E-commerce REST API
+# Pokemon REST API
 
   
 ## Disclaimer

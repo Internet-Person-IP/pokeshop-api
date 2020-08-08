@@ -1,0 +1,19 @@
+service: express-app
+
+plugins:
+  - serverless-ignore
+
+provider:
+  name: aws
+  environment:
+    DB_ENDPOINT: ${file(./serverless.env.json):DB_ENDPOINT}
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-north-1
+
+functions:
+  app:
+    handler: app.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

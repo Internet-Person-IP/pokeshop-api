@@ -12,14 +12,12 @@ app.get('/', function (req, res) {
     Pokemon.find().sort({PokemonID:1}).then((data)=>{
         res.json(data);
     })
-    .then(()=> mongoose.connection.close())
-    .catch((err)=> res.status(500).json({message: err.message}))
-      
+    .catch((err) => {
+        res.status(500).json({message: err.message})
+    })
   }catch(err){
-      res.status(500).json({message: err.message})
-
+      res.status(500).json({message: err.message});
   }
 })
-
 module.exports.handler = serverless(app);
 

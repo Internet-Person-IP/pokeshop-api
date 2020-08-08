@@ -10,6 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.28"
+    "mongoose": "^5.9.28",
+    "serverless-http": "^2.5.0"
+  },
+  "devDependencies": {
+    "serverless-ignore": "^0.1.5"
   }
 }

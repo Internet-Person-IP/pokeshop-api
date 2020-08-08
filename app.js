@@ -3,8 +3,10 @@ const Pokemon = require('./PokemonModel');
 mongoose.connect(process.env.DB_ENDPOINT,{useNewUrlParser:true,  useUnifiedTopology: true });
 const serverless = require('serverless-http');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/', function (req, res) {

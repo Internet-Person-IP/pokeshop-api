@@ -9,7 +9,8 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 app.get('/', function (req, res) {
-  console.log("Hello World");
+  const  {page, itemsperpage, q} = req.query;
+  console.log("Hello World 2");
   try{
     Pokemon.find().sort({PokemonID:1}).then((data)=>{
         res.json(data);

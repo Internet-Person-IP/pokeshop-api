@@ -6,7 +6,7 @@ inputs:
   src: ./                                 # (optional) path to the source folder. default is a hello world app.
   description: Pokeshop API               # (optional) lambda & api gateway description.
   env:                                    # (optional) env vars.
-    DEBUG: 'express:*'                    # this express specific env var will print express debug logs.
+    #DEBUG: 'express:*'                    # this express specific env var will print express debug logs.
     DB_ENDPOINT: ${env:DB_ENDPOINT}
   domain: pokeshopapi.taquiytservices.com # (optional) if the domain was registered via AWS Route53 on the account you are deploying to, it will automatically be set-up with your Express app's API Gateway, as well as a free AWS ACM SSL Cert.
   region: eu-north-1                      # (optional) aws region to deploy to. default is us-east-1.

@@ -1,25 +1,13 @@
-service: express-app
+component: express                        # (required) name of the component. In that case, it's express.  You will want to pin this to a specific version in production via semantic versioning, like this: express@1.0.10.  Run 'serverless registry express' to see available versions.
+name: pokeshop-api                        # (required) name of your express component instance.
+stage: prod                               # (optional) serverless dashboard stage. default is dev.
 
-plugins:
-  - serverless-ignore
-
-provider:
-  name: aws
-  environment:
-    DB_ENDPOINT: ${file(./serverless.env.json):DB_ENDPOINT}
-  runtime: nodejs12.x
-  stage: dev
-  region: eu-north-1
-
-functions:
-  app:
-    handler: app.handler
-    events:
-      - http: 
-         path: /
-         method: ANY
-         cors: true
-      - http: 
-         path: /{proxy+}
-         method: ANY
-         cors: true
+inputs:
+  src: ./                                 # (optional) path to the source folder. default is a hello world app.
+  description: Pokeshop API               # (optional) lambda & api gateway description.
+  env:                                    # (optional) env vars.
+    DEBUG: 'express:*'                    # this express specific env var will print express debug logs.
+    DB_ENDPOINT: ${env:DB_ENDPOINT}
+  domain: pokeshopapi.taquiytservices.com # (optional) if the domain was registered via AWS Route53 on the account you are deploying to, it will automatically be set-up with your Express app's API Gateway, as well as a free AWS ACM SSL Cert.
+  region: eu-north-1                      # (optional) aws region to deploy to. default is us-east-1.
+  openApi: false                          # (optional) (experimental) Initialize the express app on each deployment, extract an OpenAPI V.3 specification, and add it to the outputs.

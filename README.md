@@ -6,14 +6,14 @@
   
 ## Disclaimer
   
-The project should include a file called serverless.env.json which is for enviroment variables but since we cannot display it on github for security reason that file has been hidden. To be clear it is just a normal json file with some env variables.
+The project should include a file called .env which is for enviroment variables but since we cannot display it on github for security reason that file has been hidden.
   
 
 ## Abstract
 This project is one of my worst project and which I am the least proud of. The project is a Pokemon REST API that lets me get the ID,Name,ATK,DEF and HP of each pokemon. I had to scrape certain parts of the web to create the Database. The API can be found here:
 
 
-[https://f7isneh248.execute-api.eu-north-1.amazonaws.com/dev](https://f7isneh248.execute-api.eu-north-1.amazonaws.com/dev)
+[https://pokeshopapi.taquiytservices.com/](https://pokeshopapi.taquiytservices.com/)
 
 The important Technologies used where Serverless,Express and MongoDB. The hosting was on AWS.
 

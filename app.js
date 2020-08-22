@@ -7,12 +7,19 @@ const app = express();
 const morgan = require('morgan')
 app.use(cors());
 app.use(express.json());
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.get('/', function (req, res) {
-  const  {page, itemsperpage, q} = req.query;
-  console.log("Hello World 2");
+  const  {page=1, itemsperpage=151, q="", sort="PokemonID", direction="asc"} = req.query;
+  const SortingOptions = {}
+  SortingOptions[sort] = direction === 'desc' ? -1 : 1;
   try{
-    Pokemon.find().sort({PokemonID:1}).then((data)=>{
+    Pokemon.find({
+      Name: new RegExp(`${q}`,'i')
+    })
+    .sort(SortingOptions)
+    .skip((page-1)*itemsperpage)
+    .limit(Number(itemsperpage))
+    .then((data)=>{
         res.json(data);
     })
     .catch((err) => {

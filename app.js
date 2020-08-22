@@ -8,7 +8,7 @@ const morgan = require('morgan')
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
-app.get('/', function (req, res) {
+app.get('/',  (req, res) => {
   console.log("Hello World");
   try{
     Pokemon.find().sort({PokemonID:1}).then((data)=>{
@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
   }
 })
 
-app.use((err, req, res) => {
+app.use((err, res) => {
   console.error(err);
   res.status(500).send('Internal Serverless Error');
 });

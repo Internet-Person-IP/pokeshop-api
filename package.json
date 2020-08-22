@@ -4,18 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "nodemon local.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.28",
     "morgan": "^1.10.0",
     "serverless-http": "^2.5.0"
   },
   "devDependencies": {
+    "nodemon": "^2.0.4",
     "serverless-ignore": "^0.1.5"
   }
 }

@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
   }
 })
 
-app.use((err, req, res) => {
+app.use((err, res) => {
   console.error(err);
   res.status(500).send('Internal Serverless Error');
 });
